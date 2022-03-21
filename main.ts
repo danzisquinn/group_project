@@ -1,29 +1,28 @@
-let mySprite = sprites.create(img`
-    ........................
-    .....ffff...............
-    ...fff22fff.............
-    ..fff2222fff............
-    .fffeeeeeefff...........
-    .ffe222222eef...........
-    .fe2ffffff2ef...........
-    .ffffeeeeffff...........
-    ffefbf44fbfeff..........
-    fee41fddf14eef..........
-    .ffffdddddeef...........
-    fddddf444eef............
-    fbbbbf2222f4e...........
-    fbbbbf2222fd4...........
-    .fccf45544f44...........
-    ..ffffffff..............
-    ....ff..ff..............
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    `, SpriteKind.Player)
+namespace SpriteKind {
+    export const goal = SpriteKind.create()
+}
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    basketball.throwDart()
+})
+let basketball: Dart = null
+let net = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . f f f f f f f f f . . . . 
+    . . . f . . . . . . . f . . . . 
+    . . . f . . . . . . . f . . . . 
+    . . . f . . . . . . . f . . . . 
+    . . . f . . . . . . . f . . . . 
+    . . . f f f f f f f f f . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    . . . . . . . f . . . . . . . . 
+    `, SpriteKind.goal)
 scene.setBackgroundColor(7)
 scene.setBackgroundImage(img`
     ................................................................................................................................................................
@@ -147,3 +146,42 @@ scene.setBackgroundImage(img`
     ...............................................fffffffffffffffff................................................................................................
     ................................................................................................................................................................
     `)
+basketball = darts.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . 4 f 4 4 4 4 f . . . . 
+    . . . . 4 4 f f 4 4 f 4 4 . . . 
+    . . . 4 f 4 4 4 f f 4 4 f 4 . . 
+    . . . 4 f 4 4 4 f f 4 4 f 4 . . 
+    . . . 4 f 4 4 4 f f 4 4 f 4 . . 
+    . . . 4 f 4 4 4 f f 4 4 f 4 . . 
+    . . . 4 f 4 4 4 f f 4 4 f f . . 
+    . . . 4 f 4 4 4 f f 4 4 4 f . . 
+    . . . f f 4 4 4 f f 4 4 4 f . . 
+    . . . . 4 4 4 f f f f 4 4 . . . 
+    . . . . . 4 4 f 4 4 f f . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
+basketball.controlWithArrowKeys()
+basketball.setTrace()
+let monkey = sprites.create(img`
+    . . . . f f f f f . . . . . . . 
+    . . . f e e e e e f . . . . . . 
+    . . f d d d d e e e f . . . . . 
+    . c d f d d f d e e f f . . . . 
+    . c d f d d f d e e d d f . . . 
+    c d e e d d d d e e b d c . . . 
+    c d d d d c d d e e b d c . f f 
+    c c c c c d d d e e f c . f e f 
+    . f d d d d d e e f f . . f e f 
+    . . f f f f f e e e e f . f e f 
+    . . . . f e e e e e e e f f e f 
+    . . . f e f f e f e e e e f f . 
+    . . . f e f f e f e e e e f . . 
+    . . . f d b f d b f f e f . . . 
+    . . . f d d c d d b b d f . . . 
+    . . . . f f f f f f f f f . . . 
+    `, SpriteKind.Player)
+monkey.setPosition(150, 111)
