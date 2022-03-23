@@ -613,8 +613,8 @@ function star_3_reached () {
         game.splash("You got it wrong! There are only bull sharks!")
     }
 }
-function star2_reached () {
-    game.splash(star_2_question)
+function star2_reached (text: string) {
+    game.splash(text)
     user_answer_star_2 = game.askForString("The Green Anaconda is the biggest. Type t or f", 1)
     if (user_answer_star_2.includes("f")) {
         game.splash("You got it right! It's the Amazonian Manatee.")
@@ -638,7 +638,6 @@ let user_answer_star_2 = ""
 let user_answer_star_3 = ""
 let user_answer_star1 = ""
 let star_3_question = ""
-let star_2_question = ""
 let star1_question = ""
 let star_3: Sprite = null
 let star2: Sprite = null
@@ -652,6 +651,7 @@ let tree3: Sprite = null
 let tree2: Sprite = null
 let tree1: Sprite = null
 let net: Sprite = null
+let star_2_question = ""
 let monkey: Sprite = null
 let rainforest_name = ""
 setUp()
@@ -674,7 +674,7 @@ for (let index = 0; index < 11; index++) {
     monkey.y += 5
     pause(100)
 }
-star2_reached()
+star2_reached(star_2_question)
 for (let index = 0; index < 5; index++) {
     monkey.y += 5
     pause(100)
